@@ -1,0 +1,39 @@
+REACT COMPONENTS AND props
+---------------------------
+
+
+import React from 'react'
+import Button from './components/Button'
+import Input from './components/Input'
+import { log } from 'console'
+import quizScreen from './pages/quizScreen'
+
+
+const App = () => {
+  return (
+    <>
+    <div>
+      {/* Yhn pr btnValue dena zroori hai lekin btnClick and style dena zroori nhi hai kio k humne Button.tsx mai style and btnClick k agay ? lgaya hai */}
+      <Button style={{color:"yellow"}} btnValue = "Login"
+      btnClick = {() => console.log("Login clicked")} />
+
+      <Button btnClick={() => console.log("signup btn clicked")} btnValue = "SignUP"/>
+      <Button btnClick={() => console.log("submit btn clicked")} btnValue = "Submit"/>
+      <Button btnClick={() => console.log("Add btn clicked")}  btnValue = "Add Element"/>
+      
+      {/* Input component */}
+      <Input 
+      placeholder= "Enter Text" 
+      // input change aik function hai jo call hua hai Input.tsx k andar. Mtlb parent to child data flow ho rha hai, and this process is called props
+      inputChange={(ev:any) => {
+        console.log(ev.target.value)
+      }}/>
+      
+    </div>
+
+
+    </>
+  )
+}
+
+export default App
